@@ -1,6 +1,8 @@
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone/router.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Amazon Clone',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(),
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         appBarTheme: const AppBarTheme(
           elevation: 0,
@@ -27,20 +31,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Hello'),
-          centerTitle: true,
-        ),
-        body: Column(
-          children: [
-            const Center(
-              child: Text('Amazon Clone'),
-            ),
-            ElevatedButton(onPressed: () {}, child: const Text('Tap')),
-          ],
-        ),
-      ),
+      home: const AuthScreen(),
     );
   }
 }
